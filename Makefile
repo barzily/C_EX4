@@ -9,14 +9,14 @@ graph: main.o graphlib.a
 main.o: main.c graph.h 
 	$(CC) $(FLAGS) -c main.c 
 
-Dijkstra.o: Dijkstra.c graph.h
-	$(CC) $(FLAGS) -c Dijkstra.c
+Dijkstra.o: algo.c graph.h
+	$(CC) $(FLAGS) -c algo.c
 
 graph.o: graph.c graph.h
 	$(CC) $(FLAGS) -c graph.c
 
-graphlib.a: Dijkstra.o graph.o
-	$(AR) -rcs graphlib.a Dijkstra.o graph.o
+graphlib.a: algo.o graph.o
+	$(AR) -rcs graphlib.a algo.o graph.o
 
 all: graph
 clean: 
