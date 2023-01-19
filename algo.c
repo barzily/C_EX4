@@ -6,7 +6,6 @@ int weight;
 int arrlenth;
 pnode graph;
 
-////////////Dijkstra/////////////
 
 pdijkstra use_Dijkstra(pdijkstra head, int id) 
 {
@@ -80,8 +79,6 @@ pdijkstra RunDijkstra(pnode open, int src)
     return head;
 }
 
-////////////////////SHORTEST PASH/////////////////
-
 int shortest_Path(pnode head, int src, int dest) 
 {
     pdijkstra dijkstraHead = RunDijkstra(head, src);
@@ -114,8 +111,6 @@ int shortest_Path(pnode head, int src, int dest)
 
     return D;
 }
-
-/////////////////TSP////////////////
 
 void input_Array(int* fromArr,int* toArr, int arrLenght) 
 {
