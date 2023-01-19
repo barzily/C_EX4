@@ -5,26 +5,27 @@
 
 int main()
 {
-    pnode temp = NULL;
-    pnode *head = &temp;
-    char choise;
-    char ch;
-    int v = 0;
+    pnode tmp = NULL;
+    pnode *head = &tmp;
+    int from = 0;
     int src = 0;
+    char user_c;
+    char c;
 
-    while (scanf("%c", &choise) != EOF)
+
+    while (scanf("%c", &user_c) != EOF)
     {
  
-        if(choise == 'A')
+        if(user_c == 'A')
         {
             freeGraph(head);
-            scanf("%d", &v);
-            *head =  creat_graph(v);
+            scanf("%d", &from);
+            *head =  creat_graph(from);
             
-            scanf("%c", &ch);
+            scanf("%c", &c);
             
-            while(scanf("%c", &ch)!=0){
-                if(ch == 'n')
+            while(scanf("%c", &c)!=0){
+                if(c == 'n')
                 {
                 scanf("%d",&src);
                 add_adge(head,src);
@@ -34,34 +35,32 @@ int main()
                     break;
                 }
             }
-            // print_graph(*head);
-            
-            choise = ch;
-        }
 
-        if(choise == 'B')
-        {
-            add_node(head);
-            // print_graph(*head);
-            continue;
+            
+            user_c = c;
         }
-        if(choise == 'D')
+        if(user_c == 'S')
         {
-            del_node(head);
-            // print_graph(*head);
-            continue;
-        }
-        if(choise == 'S')
-        {
-            // shortsPath(*head);
             int src = -1, dest = -1;
             scanf("%d %d", &src, &dest);
-            int dis = shortest_Path(*head, src, dest);
-            printf("Dijsktra shortest path: %d ",dis);
+            int dij = shortest_Path(*head, src, dest);
+            printf("Dijsktra shortest path: %d ",dij);
             printf("\n");
             continue;
         }
-        if(choise == 'T')
+        if(user_c == 'D')
+        {
+            del_node(head);
+            continue;
+        }
+        if(user_c == 'B')
+        {
+            add_node(head);
+            continue;
+        }
+
+
+        if(user_c == 'T')
         {
             int tsp = TSP(*head);
             printf("TSP shortest path: %d ",tsp);
@@ -73,7 +72,4 @@ int main()
     }
     freeGraph(head);
 }
-
-
-
 
